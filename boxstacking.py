@@ -39,7 +39,7 @@ def heuristic_demo():
 
 def user_control_demo():
     ycb_models = YCBModels(
-        os.path.join('./data/ycb', '**', 'textured-decmp.obj'),
+        os.path.join('./data/ycb', '061_foam_brick', 'textured-decmp.obj'),
     )
     camera = Camera((0, -0.5, 1.5), 0.1, 5, (320, 320), 40)
 
@@ -67,4 +67,4 @@ def user_control_demo():
 
 if __name__ == '__main__':
     user_control_demo()
-    # heuristic_demo()
+    heuristic_demo()
