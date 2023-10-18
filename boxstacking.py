@@ -15,7 +15,7 @@ def heuristic_demo():
     )
     camera = Camera((0, -0.5, 1.5), 0.1, 5, (320, 320), 40)
 
-    env = ClutteredPushGrasp(ycb_models, camera, vis=True, num_objs=5, gripper_type='85')
+    env = ClutteredPushGrasp(ycb_models, camera, vis=True, num_objs=2, gripper_type='85')
     p.resetDebugVisualizerCamera(2.0, -270., -60., (0., 0., 0.))
     p.configureDebugVisualizer(p.COV_ENABLE_SHADOWS, 1)  # Shadows on/off
 
@@ -23,7 +23,7 @@ def heuristic_demo():
     step_cnt = 0
     while True:
 
-        h_, w_ = np.unravel_index(depth.argmin(), depth.shape)
+        h_, w_ = np.unravel_index(min(depth), len(depth))
         x, y, z = camera.rgbd_2_world(w_, h_, depth[h_, w_])
 
         p.addUserDebugLine([x, y, 0], [x, y, z], [0, 1, 0])
@@ -66,5 +66,4 @@ def user_control_demo():
 
 
 if __name__ == '__main__':
-    user_control_demo()
     heuristic_demo()

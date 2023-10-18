@@ -66,5 +66,5 @@ def user_control_demo():
 
 
 if __name__ == '__main__':
-    user_control_demo()
-    # heuristic_demo()
+    # user_control_demo()
+     heuristic_demo()
