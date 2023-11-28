@@ -80,5 +80,5 @@ if __name__ == '__main__':
                                                              simple_ik)
     num_complex_ik_found, avg_runtime_complex = eval_ik_method(manip, robot, test_configurations,
                                                                complex_ik)
-    print 'Number of simple IKs found: %i, runtime: %f' % (num_simple_ik_found, avg_runtime_simple)
-    print 'Number of complex IKs found: %i, runtime: %f' % (num_complex_ik_found, avg_runtime_complex)
+    print ('Number of simple IKs found: %i, runtime: %f' ,num_simple_ik_found, avg_runtime_simple)
+    print ('Number of complex IKs found: %i, runtime: %f', num_complex_ik_found, avg_runtime_complex)

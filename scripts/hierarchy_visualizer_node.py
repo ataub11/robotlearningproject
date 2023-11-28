@@ -130,22 +130,22 @@ class GUI(Gtk.Window):
         vidx = nns[0]
         position = self.get_screen_coordinates(vidx)
         dist = math.sqrt(math.pow(position[0] - x, 2) + math.pow(position[1] - y, 2))
-        print dist
+        print(dist)
         if dist < self.node_size:
             return vidx
         else:
             return None
 
     def button_clicked(self, widget, event):
-        print 'you clicked me at ', event.x, ' ', event.y
+        print('you clicked me at '+ event.x + ' ' + event.y)
         if self._node_index is None:
             self.compute_node_index()
         node = self.get_node(event.x, event.y)
         if node is not None:
-            print self.graph.vs[node]['unique_label']
+            print(self.graph.vs[node]['unique_label'])
             self.node_selection_publisher.publish(self.graph.vs[node]['unique_label'])
         else:
-            print 'No node clicked'
+            print ('No node clicked')
         self.darea.queue_draw()
 
     def compute_layer_sizes(self):
@@ -167,9 +167,9 @@ class GUI(Gtk.Window):
 
 class GUIThread(Thread):
     def run(self):
-        print 'Creating Window'
+        print('Creating Window')
         self.gtkWindow = GUI()
-        print 'Created Window'
+        print ('Created Window')
         Gtk.main()
 
     def join(self):
